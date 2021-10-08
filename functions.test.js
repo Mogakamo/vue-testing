@@ -1,4 +1,5 @@
 const { test, expect } = require('@jest/globals');
+const { fetchUsers } = require('./functions');
 const functions = require('./functions');
 
 //equals
@@ -54,10 +55,19 @@ test('Admin should be in usernames', () => {
 })
 
 //working async data
+
+//Promise
 test('User fetched name should be Leanne Graham', () => {
     expect.assertions(1)
     return functions.fetchUsers()
         .then(data => {
             expect(data.name).toEqual('Leanne Graham')
         })
+});
+
+//Async await
+test('User fetched name should be Leanne Graham - Async await implemented', async() => {
+    expect.assertions(1)
+    const data = await fetchUsers()
+    expect(data.name).toEqual('Leanne Graham')
 });
