@@ -2,6 +2,33 @@ const { test, expect } = require('@jest/globals');
 const { fetchUsers } = require('./functions');
 const functions = require('./functions');
 
+// beforeEach(() => initDatabase())
+// afterEach(() => closeDatabase())
+
+// beforeAll(() => initDatabase())
+// afterAll(() => closeDatabase())
+
+
+// const initDatabase = () => {
+//     console.log('Database initialised')
+// }
+// const closeDatabase = () => {
+//     console.log('Database closed')
+// }
+const nameCheck = () => console.log('Checking names...')
+
+
+
+describe('Checking names', () => {
+    beforeEach(() => {
+        nameCheck()
+    })
+
+    test('User is Jeff', () => {
+    const user = 'Jeff'
+    expect(user).toBe('Jeff')
+});
+})
 //equals
 test('Adds 2 + 2 to equal 4', () => {
     expect(functions.add(2, 2)).toBe(4);
